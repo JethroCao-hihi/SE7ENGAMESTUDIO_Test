@@ -42,7 +42,7 @@ public class CameraController : MonoBehaviour
 
     private IEnumerator FollowBallProcess(Transform ballTransform)
     {
-        // 1. Chuyển Camera đi theo quả bóng
+        // Chuyển Camera đi theo quả bóng
         currentTarget = ballTransform;
 
         Rigidbody ballRb = ballTransform.GetComponent<Rigidbody>();
@@ -50,7 +50,7 @@ public class CameraController : MonoBehaviour
         // Chờ 0.3s để bóng thực sự cất cánh sau cú sút
         yield return new WaitForSeconds(0.3f);
 
-        // 2. Theo dõi quả bóng cho đến khi nó dừng lại hoặc vận tốc rất nhỏ (sau khi chạm khung thành/lưới)
+        // Theo dõi quả bóng cho đến khi nó dừng lại hoặc vận tốc rất nhỏ (sau khi chạm khung thành/lưới)
         if (ballRb != null)
         {
             while (ballRb.linearVelocity.magnitude > 0.5f)
@@ -61,7 +61,7 @@ public class CameraController : MonoBehaviour
 
         yield return new WaitForSeconds(2.0f);
 
-        // 4. Chuyển Camera quay trở lại nhân vật
+        // Chuyển Camera quay trở lại nhân vật
         currentTarget = playerTarget;
         followBallRoutine = null;
     }

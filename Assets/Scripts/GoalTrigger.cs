@@ -11,26 +11,26 @@ public class GoalTrigger : MonoBehaviour
         {
             if (confettiParticle != null)
             {
-                //Điểm va chạm đầu tiên giữa bóng và khung thành
+                // Điểm va chạm đầu tiên giữa bóng và khung thành
                 ContactPoint contact = collision.contacts[0];
                 Vector3 hitPoint = contact.point;
                 Vector3 hitNormal = contact.normal;
 
-                //Particle System đến đúng vị trí điểm va chạm
+                // Particle System đến đúng vị trí điểm va chạm
                 confettiParticle.transform.position = hitPoint;
 
-                //Particle hướng ra ngoài theo bề mặt va chạm
+                // Particle hướng ra ngoài theo bề mặt va chạm
                 confettiParticle.transform.rotation = Quaternion.LookRotation(hitNormal);
 
-                //hiệu ứng
+                // Hiệu ứng được phát lại
                 confettiParticle.Stop();
                 confettiParticle.Play();
 
-                Debug.Log($"GOAL! Bung pháo hoa tại vị trí va chạm: {hitPoint}");
+                Debug.Log("Goallllll!!!!!!");
             }
             else
             {
-                Debug.LogWarning("Chưa gán Particle System vào ô Confetti Particle!");
+                Debug.LogWarning("Chưa gán effect vào");
             }
         }
     }

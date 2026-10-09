@@ -56,9 +56,7 @@ public class BallKicker : MonoBehaviour
         // Tìm khung thành gần quả bóng nhất
         GameObject nearestGoal = GetNearestGoal(ball.transform.position);
 
-        Vector3 kickDirection = nearestGoal != null
-            ? (nearestGoal.transform.position - ball.transform.position).normalized
-            : transform.forward;
+        Vector3 kickDirection = nearestGoal != null ? (nearestGoal.transform.position - ball.transform.position).normalized : transform.forward;
 
         ballRb.isKinematic = false;
         ballRb.linearVelocity = Vector3.zero;
